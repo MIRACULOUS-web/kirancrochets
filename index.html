@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROCHET</title>
+    <style>
+        /* General layout settings for the page */
+        body {
+            background-color: black;
+            font-family: Georgia, serif;
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Centered golden heading inside a floating white box container */
+        h1 {
+            color: #D4AF37;               /* Metallic gold */
+            background-color: white;      /* White box background */
+            text-align: center;           /* Centers the text horizontally */
+            font-size: 2.3em;             /* Heading text size */
+            padding: 18px 30px;           /* Inner breathing space for text */
+            margin: 20px auto 40px auto;  /* Centers the box horizontally and adds space below */
+            max-width: 650px;             /* Narrowed down to look clean and tightly packed */
+            border: 2px solid #FFD700;    /* Crisp golden border accent */
+            border-radius: 8px;           /* Smooth rounded corners */
+            
+            /* Beautiful 3D floating shadow effects */
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1), 
+                        0 6px 6px rgba(255, 255, 255, 0.05);
+            
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: white;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+            font-family: Georgia, serif;
+        }
+
+        p {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Main description link configuration */
+        p a {
+            color: #4da6ff;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Gallery flexbox container setup */
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;     
+            gap: 25px;           /* Spacing to cleanly separate product cards */
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Individual Card Container for each item */
+        .product-card {
+            background-color: #111;       /* Subtle dark background for card isolation */
+            border: 1px solid #222;       /* Soft dark boundary border */
+            border-radius: 8px;           /* Rounded corners for the entire card structure */
+            overflow: hidden;             /* Ensures image limits respect the rounded borders */
+            width: 300px;
+            text-align: center;           /* Centers item label names and prices */
+            padding-bottom: 20px;         /* Creates clean space at the base of cards */
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.02);
+        }
+
+        /* Handles the structural uniformity of your layout images */
+        .product-card img {
+            width: 100%;
+            height: 350px;       
+            object-fit: cover;   
+        }
+
+        /* Label names for individual products */
+        .product-title {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            margin: 12px 0 6px 0;
+        }
+
+        /* Dedicated layout style block for prices */
+        .product-price {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFD700;               /* Standout golden price label tag */
+            margin-bottom: 15px;
+        }
+
+        /* Styling for the clean Buy Now Action Button */
+        .buy-button {
+            display: inline-block;
+            background-color: #00baf2;    /* Paytm premium blue tone */
+            color: white;                 /* White bold text */
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 24px;            /* Symmetrical button padding spacing */
+            border-radius: 20px;          /* pill-shaped rounded button */
+            transition: background-color 0.2s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .buy-button:hover {
+            background-color: #0099c8;    
+            transform: scale(1.04);       
+        }
+
+        /* How to Order Steps Section Styling */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 20px 0 45px 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            background-color: #111;
+            border: 1px solid #222;
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .step-number {
+            background-color: #FFD700;
+            color: black;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            color: #eee;
+            line-height: 1.4;
+        }
+
+        .step-text strong {
+            color: #FFD700;
+        }
+
+        /* Custom Delivery Form Container styling */
+        .form-container {
+            background-color: #111;
+            border: 1px solid #222;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 550px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ccc;
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: #222;
+            border: 1px solid #444;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: #FFD700;
+            outline: none;
+        }
+
+        /* WhatsApp routing form submit button */
+        .submit-btn {
+            background-color: #25D366;    /* Official WhatsApp green color */
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            padding: 14px 20px;
+            width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #128C7E;    /* Deeper green tone on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>KIRAN'S MIRACULOUS CROCHET</h1>
+
+    <p>
+        WELCOME TO MY WORLD OF CROCHET.<br>
+        Most of you might be from the latest link I have prepared, so welcome here.<br>
+        I am selling products made from crochet. If you have any query regarding my products,<br>
+        or you want to purchase my products, then<br>
+        you can directly contact me via INSTAGRAM.<br><br>
+        <strong>INSTAGRAM USER ID: <a href="https://instagram.com" target="_blank">@kirancrochet.co</a></strong>
+    </p>
+
+    <h2>PRODUCTS</h2>
+
+    <div class="image-gallery">
+        
+        <!-- Product Card 1 -->
+        <div class="product-card">
+            <img src="miniontop.jpg.jpeg" alt="Minion Top">
+            <div class="product-title">Minion Top</div>
+            <div class="product-price">₹1,499</div> 
+            <a href="upi://pay?pa=8130306481@ptyes&pn=Kiran%20Crochet&am=1499.00&cu=INR&tn=Payment%20for%20Minion%20Top" class="buy-button">Pay via UPI / Paytm</a>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="product-card">
+            <img src="redtop.jpg.jpeg" alt="Red Top">
+            <div class="product-title">Red Crop Top</div>
+            <div class="product-price">₹1,699</div>
+            <a href="upi://pay?pa=8130306481@ptyes&pn=Kiran%20Crochet&am=1699.00&cu=INR&tn=Payment%20for%20Red%20Crop%20Top" class="buy-button">Pay via UPI / Paytm</a>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card">
+            <img src="checktop.jpeg" alt="Checkered Top">
+            <div class="product-title">Checkered Top</div>
+            <div class="product-price">₹1,899</div>
+            <a href="upi://pay?pa=8130306481@ptyes&pn=Kiran%20Crochet&am=1899.00&cu=INR&tn=Payment%20for%20Checkered%20Top" class="buy-button">Pay via UPI / Paytm</a>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="product-card">
+            <img src="strawberry.jpeg" alt="Strawberry Phone Bag">
+            <div class="product-title">Strawberry Phone Bag</div>
+            <div class="product-price">₹999</div>
+            <a href="upi://pay?pa=8130306481@ptyes&pn=Kiran%20Crochet&am=999.00&cu=INR&tn=Payment%20for%20Strawberry%20Phone%20Bag" class="buy-button">Pay via UPI / Paytm</a>
+        </div>
+
+    </div>
+
+    <h2>HOW TO PLACE YOUR ORDER</h2>
+    <div class="steps-container">
+        <div class="step-item">
+            <div class="step-number">1</div>
+Click the blue "Pay via UPI / Paytm" button on your favorite item to complete the payment via any preferred app.<br>
+
+
+2
+Fill out your shipping information, phone number, and product details in the Delivery Form below.<br>
+
+
+3
+Click "Submit Details via WhatsApp" to send the finalized details to complete your verification!<br>
+
+SUBMIT SHIPPING DETAILS<br>
+
+
+Full Name,<br>
+Phone Number<br>
+Purchased Product<br>
+Select the item you paid for<br>
+Minion Top - ₹1,499<br>
+Red Crop Top - ₹1,699<br>
+Checkered Top - ₹1,899<br>
+Strawberry Phone Bag - ₹999<br>
+
+
+</body>
+</html>
